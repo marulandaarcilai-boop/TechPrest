@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPrest - Sistema de Gestión de Préstamos</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><i class="fa-solid fa-laptop-code"></i> TechPrest</div>
+        <div class="user-info"><span>Administrador</span></div>
+    </header>
+
+    <main class="container">
+        <!-- Métricas -->
+        <section class="metrics-grid">
+            <div class="card metric">
+                <h3>Total Equipos</h3>
+                <p id="stat-total">0</p>
+            </div>
+            <div class="card metric">
+                <h3>Disponibles</h3>
+                <p id="stat-disponibles">0</p>
+            </div>
+            <div class="card metric">
+                <h3>En Préstamo</h3>
+                <p id="stat-prestados">0</p>
+            </div>
+        </section>
+
+        <!-- Formulario y Catálogo -->
+        <div class="workspace">
+            <div class="card form-container">
+                <h2><i class="fa-solid fa-file-circle-plus"></i> Nuevo Préstamo</h2>
+                <form id="loan-form">
+                    <label>Solicitante (Estudiante/Docente):</label>
+                    <input type="text" id="user-name" required placeholder="Ej: Juan Pérez">
+
+                    <label>Seleccionar Equipo:</label>
+                    <select id="equipment-select" required>
+                        <option value="">-- Seleccione un equipo --</option>
+                    </select>
+
+                    <label>Fecha Estimada de Devolución:</label>
+                    <input type="date" id="return-date" required>
+
+                    <button type="submit" class="btn-primary">Registrar Préstamo</button>
+                </form>
+            </div>
+
+            <div class="card inventory-container">
+                <h2><i class="fa-solid fa-boxes-stacked"></i> Estado del Inventario</h2>
+                <div id="inventory-list" class="inventory-grid"></div>
+            </div>
+        </div>
+
+        <!-- Tabla de Préstamos Activos -->
+        <div class="card table-container">
+            <h2><i class="fa-solid fa-clipboard-list"></i> Préstamos Activos y Trazabilidad</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Solicitante</th>
+                        <th>Equipo</th>
+                        <th>Fecha Préstamo</th>
+                        <th>Devolución</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="loans-table-body">
+                    <!-- Dinámico -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
